@@ -1,8 +1,9 @@
 ---
+permalink: /portfolio3d/
 title: "Portfolio3D"
 unity_dir: portfolio3d
 classes: wide
 layout: single
 ---
 
-This is a test page.
+Insert a webgl content.
