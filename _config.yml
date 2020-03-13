@@ -18,15 +18,19 @@ minimal_mistakes_skin: dark
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: "Fabien Cheftel"
-logo: "/assets/images/icon.png"
+title_separator: "-"
+subtitle: "Portfolio"
 masthead_title: "Fabien Cheftel"
 email: "f.cheftel@gmail.com"
-description: "A short description about me, nothing much."
+description: "Fabien Cheftel's portfolio."
 name: "Fabien Cheftel"
 repository: "Chefty/Chefty.github.io"
 github_username: "Chefty"
 search: true
-baseurl: /Chefty.github.io # the subpath of your site, e.g. "/blog"
+baseurl: # the subpath of your site, e.g. "/blog"
+
+# breadcrumbs            : false # true, false (default)
+words_per_minute         : 200
 
 # Build settings
 markdown: kramdown
@@ -68,7 +72,7 @@ author:
   location: "Montpellier, France"
   links:
     - label: "Linkedin"
-      icon: "fas fa-fw fa-linkedin"
+      icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/fabiencheftel"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
@@ -80,7 +84,7 @@ author:
 footer:
   links:
     - label: "Linkedin"
-      icon: "fas fa-fw fa-linkedin"
+      icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/fabiencheftel"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
