@@ -8,25 +8,29 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
+# theme                  : "minimal-mistakes-jekyll"
+# remote_theme           : "mmistakes/minimal-mistakes"
+minimal_mistakes_skin: dark
+
 # Site settings
 # These are used to personalize your new site. If you look in the HTML files,
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: MM
-email:
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-twitter_username: username
-github_username: username
-minimal_mistakes_skin: default
+title: "Fabien Cheftel"
+logo: "/assets/images/icon.png"
+masthead_title: "Fabien Cheftel"
+email: "f.cheftel@gmail.com"
+description: "A short description about me, nothing much."
+name: "Fabien Cheftel"
+repository: "Chefty/Chefty.github.io"
+github_username: "Chefty"
 search: true
+baseurl: /Chefty.github.io # the subpath of your site, e.g. "/blog"
 
 # Build settings
 markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
+remote_theme: "mmistakes/minimal-mistakes@4.19.0"
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
@@ -60,52 +64,39 @@ plugins:
 author:
   name   : "Fabien Cheftel"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  bio    : "Unity (C#) developer looking for new opportunities in Montpellier, France."
+  location: "Montpellier, France"
   links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
+    - label: "Linkedin"
+      icon: "fas fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/fabiencheftel"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://github.com/Chefty"
+    - label: "E-mail"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:f.cheftel@gmail.com"  
 
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
+    - label: "Linkedin"
+      icon: "fas fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/fabiencheftel"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://github.com/Chefty"
+    - label: "E-mail"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:f.cheftel@gmail.com"  
 
 defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
   # _pages
   - scope:
       path: "_pages"
       type: pages
     values:
       layout: single
-      author_profile: true
+      author_profile: false
 
 category_archive:
   type: liquid
