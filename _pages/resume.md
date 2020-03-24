@@ -60,7 +60,7 @@ toc: true
 {: .notice}
 
   
-## Technikal Skills
+## Technical Skills
 * **Tools**
     * Unity3D
     * Visual Studio

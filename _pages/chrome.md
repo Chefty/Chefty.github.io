@@ -1,4 +1,5 @@
 ---
+layout: splash
 title: "Chrome"
 permalink: /chrome/
 author_profile: false
@@ -13,7 +14,6 @@ tags:
   - VR
   - Oculus Rift
   - Meditation
-toc: true
 feature_row:
   - image_path: https://avatars2.githubusercontent.com/u/23333299
     alt: "Zirtok"
@@ -66,7 +66,7 @@ This project has been made in 48 hours during the Global Game Jam 2020.<br>
 Check out other projects on [Global Game Jam 2020 Toulouse](https://globalgamejam.org/2020/jam-sites/campus-ionis-toulouse).
 
 ## Team
-{% include feature_row %}
+{% include feature_row type=left %}
 
 ## License
 This project is under MIT license.

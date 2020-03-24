@@ -10,7 +10,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: dark
+minimal_mistakes_skin: custom
 
 # Site settings
 # These are used to personalize your new site. If you look in the HTML files,
@@ -68,7 +68,7 @@ plugins:
 author:
   name   : "Fabien Cheftel"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Unity (C#) developer looking for new opportunities in Montpellier, France."
+  bio    : "Unity (C#) developer looking for new opportunities in Montpellier, France.\r\n\r\n[Download Resume](/assets/download/resume_2019_en.pdf){: .btn .btn--success}"
   location: "Montpellier, France"
   links:
     - label: "Linkedin"

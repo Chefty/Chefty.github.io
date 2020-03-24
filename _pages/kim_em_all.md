@@ -1,4 +1,5 @@
 ---
+layout: splash
 title: "Kim'Em'All"
 permalink: /kim_em_all/
 author_profile: false
@@ -10,7 +11,16 @@ tags:
   - Game development
   - School project
   - Beat-em-all
-toc: true
+feature_row:
+  - image_path: https://raw.githubusercontent.com/Chefty/Kim-Them-All/master/Screenshot/shooting.gif
+    title: "Shooting"
+    excerpt: "Shoot enemies with an automatic rifle."
+  - image_path: https://raw.githubusercontent.com/Chefty/Kim-Them-All/master/Screenshot/bonus_grab.gif
+    title: "Bonus loot"
+    excerpt: "Grab some bonus to help you to survive."
+  - image_path: https://raw.githubusercontent.com/Chefty/Kim-Them-All/master/Screenshot/bonus_use.gif
+    title: "Bonus usage"
+    excerpt: "From shields to a nuke bomb, every bonus has its specificities."
 ---
 
 # Game Details
@@ -18,8 +28,7 @@ A simple student's video game project.<br />
 Development's duration: 3 weeks. <br /> 
 
 # Gameplay video
-Click below for more. <br /> 
-[Click here to play video](https://youtu.be/th7IP-hwKzM)
+{% include video id="th7IP-hwKzM" provider="youtube" %}
 
 ## Level design
 Prison courtyard.
@@ -60,9 +69,5 @@ Score, current weapon, ammo, active bonus, number of life (3).
 ![alt text](https://raw.githubusercontent.com/Chefty/Kim-Them-All/master/Screenshot/game_nighttime.png)
 ### Daymode
 ![alt text](https://raw.githubusercontent.com/Chefty/Kim-Them-All/master/Screenshot/game_daytime.png)
-### Shooting
-![alt text](https://raw.githubusercontent.com/Chefty/Kim-Them-All/master/Screenshot/shooting.gif)
-### Catch bonus
-![alt text](https://raw.githubusercontent.com/Chefty/Kim-Them-All/master/Screenshot/bonus_grab.gif)
-### Use bonus
-![alt text](https://raw.githubusercontent.com/Chefty/Kim-Them-All/master/Screenshot/bonus_use.gif)
+
+{% include feature_row type=left %}
