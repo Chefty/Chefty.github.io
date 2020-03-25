@@ -4,7 +4,7 @@ title: "Chrome"
 permalink: /chrome/
 author_profile: false
 header:
-  overlay_image: /assets/images/chrome_thumbnail.png
+  overlay_image: /assets/images/banner_chrome.png
   teaser: /assets/images/chrome_thumbnail.png
 excerpt:
     A peaceful VR experience made with Unity.

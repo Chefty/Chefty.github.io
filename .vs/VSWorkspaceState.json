@@ -1,13 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\assets",
+    "\\assets\\css",
+    "\\assets\\download",
     "\\assets\\images",
-    "\\assets\\unity",
-    "\\assets\\unity\\portfolio3d",
-    "\\_data",
-    "\\_pages",
-    "\\_posts"
+    "\\assets\\js\\lunr",
+    "\\_pages"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\index.html",
   "PreviewInSolutionExplorer": false
 }

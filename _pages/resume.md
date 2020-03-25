@@ -2,14 +2,6 @@
 permalink: /resume/
 title: "Resume"
 author_profile: true
-categories:
-  - Markup
-tags:
-  - content
-  - css
-  - formatting
-  - html
-  - markup
 toc: true
 ---
 
@@ -34,11 +26,11 @@ toc: true
         * Assets integration.
         * Programming.
         * Maintenance - debug & test.
-        * Deploying realeases and tests versions.
+        * Deploying releases and tests version.
         * Managing user feedbacks.
         * Feature's implementation.
     * Cross-platform application, compatible with more than 8 devices and 5 different API.
-        * SDK/API integration for every devices.
+        * SDK/API integration for every device.
 
 **Environnement:** Unity (C#), Visual Studio, Android, iOS, Windows, Github, AWS.
 {: .notice}

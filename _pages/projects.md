@@ -3,12 +3,12 @@ layout: splash
 permalink: /projects/
 title: "Projects"
 header:
-  overlay_color: "#5e616c"
+  overlay_image: /assets/images/banner_projects.png
   actions:
-    - label: "<i class='fab fa-unity'></i> Start 3D Portfolio (Desktop only)"
+    - label: "<i class='fab fa-unity'></i> Start 3D Portfolio (Desktop)"
       url: "/portfolio3d/"
 excerpt:
-  A non-exhaustive list of all my projects, personal and professionnal.<br />
+  A non-exhaustive list of my projects, personal and professional.<br />
 feature_row:
   - image_path: /assets/images/working_on_it.png
     alt: "Space Race Battle"
