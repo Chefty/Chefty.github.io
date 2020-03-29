@@ -5,6 +5,9 @@ permalink: /chrome/
 author_profile: false
 header:
   overlay_image: /assets/images/banner_chrome.png
+  actions:
+    - label: "<i class='fab fa-fw fa-github'></i> Project sources"
+      url: https://github.com/Chefty/Chrome
   teaser: /assets/images/chrome_thumbnail.png
 excerpt:
     A peaceful VR experience made with Unity.

@@ -5,7 +5,12 @@ permalink: /kim_em_all/
 author_profile: false
 header:
   overlay_image: https://raw.githubusercontent.com/Chefty/Kim-Them-All/master/Screenshot/shooting.gif
+  actions:
+    - label: "<i class='fab fa-fw fa-github'></i> Project sources"
+      url: https://github.com/Chefty/Kim-Them-All
   teaser: https://raw.githubusercontent.com/Chefty/Kim-Them-All/master/Screenshot/main_menu.PNG
+excerpt:
+    A simple beat'em'all game school project.
 tags:
   - Unity3D
   - Game development
