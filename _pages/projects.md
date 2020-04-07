@@ -4,9 +4,6 @@ permalink: /projects/
 title: "Projects"
 header:
   overlay_image: /assets/images/banner_projects.png
-  actions:
-    - label: "<i class='fab fa-unity'></i> Start 3D Portfolio (WebGL)"
-      url: "assets/unity/portfolio3d/"
 excerpt:
   A non-exhaustive list of my projects, personal and professional.<br />
 feature_row:

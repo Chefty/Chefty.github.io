@@ -19,7 +19,8 @@ minimal_mistakes_skin: custom
 # in the templates via {{ site.myvariable }}.
 title: "Fabien Cheftel"
 title_separator: "-"
-subtitle: "Portfolio"
+subtitle: "C# Unity developer"
+logo: "/assets/images/bio_photo_rounded.png"
 masthead_title: "Fabien Cheftel"
 email: "f.cheftel@gmail.com"
 description: "Fabien Cheftel's portfolio."
@@ -67,7 +68,7 @@ plugins:
 
 author:
   name   : "Fabien Cheftel"
-  avatar : "/assets/images/bio-photo.jpg"
+  avatar : "/assets/images/bio-photo.png"
   bio    : "Unity (C#) developer looking for new opportunities in Montpellier, France.\r\n\r\n[Download Resume](/assets/download/resume_2019_en.pdf){: .btn .btn--success}"
   location: "Montpellier, France"
   links:
