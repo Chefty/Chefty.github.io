@@ -26,13 +26,13 @@ toc: true
         * Assets integration.
         * Programming.
         * Maintenance - debug & test.
-        * Deploying releases and tests version.
+        * Deploying releases and test versions.
         * Managing user feedbacks.
         * Feature's implementation.
-    * Cross-platform application, compatible with more than 8 devices and 5 different API.
+    * Cross-platform application, compatible with more than 8 devices and 5 different SDK.
         * SDK/API integration for every device.
 
-**Environnement:** Unity (C#), Visual Studio, Android, iOS, Windows, Github, AWS.
+**Environment:** Unity (C#), Visual Studio, Android, iOS, Windows, Github, AWS.
 {: .notice}
 
 ### September 2017 - February 2018 (6 months)
@@ -41,14 +41,14 @@ toc: true
         * Assets integration.
         * Programming.
 
-**Environnement:** Unity (C#), Microsoft Hololens, Visual Studio, SVN.
+**Environment:** Unity (C#), Microsoft Hololens, Visual Studio, SVN.
 {: .notice}
 
 ### April 2016 - August 2016 (5 months)
 * C#/.Net developer (Internship) - Mews Partners (Toulouse, France)
     * Developing a Web intranet & Microsoft Office add-in.
 
-**Environnement:** Visual Studio (C#, VBA), Microsoft SQL Server, Microsoft Office.
+**Environment:** Visual Studio (C#, VBA), Microsoft SQL Server, Microsoft Office.
 {: .notice}
 
   
