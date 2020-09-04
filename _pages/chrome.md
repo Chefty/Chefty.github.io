@@ -53,6 +53,9 @@ feature_row:
 # What is Chrome about ?
 Chrome is a VR game where, as a "god", you have to repair the planet and bring it back to life by painting it. It aims to be a relaxing experience with peaceful music where you focus on coloring the sphere and it's biomes.
 
+# Gameplay video
+{% include video id="107ZnNgu_Q0" provider="youtube" %}
+
 ## How To Use
 To clone and run this application, you will need:
 - A Git compatible version control system (e.g [Git](https://git-scm.com))
