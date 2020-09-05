@@ -2,14 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\assets",
-    "\\assets\\unity",
     "\\assets\\unity\\portfolio3d",
     "\\assets\\unity\\portfolio3d\\Build",
     "\\assets\\unity\\portfolio3d\\TemplateData",
     "\\_data",
     "\\_includes",
-    "\\_layouts"
+    "\\_includes\\head",
+    "\\_layouts",
+    "\\_pages"
   ],
-  "SelectedNode": "\\_includes\\analytics.html",
+  "SelectedNode": "\\_config.yml",
   "PreviewInSolutionExplorer": false
 }

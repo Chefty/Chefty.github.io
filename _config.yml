@@ -69,8 +69,8 @@ plugins:
 author:
   name   : "Fabien Cheftel"
   avatar : "/assets/images/bio-photo.png"
-  bio    : "Unity (C#) developer looking for new opportunities in Montpellier, France.\r\n\r\n[Download Resume](/assets/download/resume_cheftel.pdf){: .btn .btn--success}"
-  location: "Montpellier, France"
+  bio    : "Unity (C#) developer looking for new opportunities in Berlin, Germany.\r\n\r\n[Download Resume](/assets/download/resume_cheftel.pdf){: .btn .btn--success}"
+  location: "Berlin, Germany"
   links:
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
