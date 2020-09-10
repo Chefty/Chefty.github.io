@@ -54,7 +54,7 @@ feature_row:
 Chrome is a VR game where, as a "god", you have to repair the planet and bring it back to life by painting it. It aims to be a relaxing experience with peaceful music where you focus on coloring the sphere and it's biomes.
 
 # Gameplay video
-{% include video id="107ZnNgu_Q0" provider="youtube" %}
+{% include video id="KjQxsBD2ex8" provider="youtube" %}
 
 ## How To Use
 To clone and run this application, you will need:
