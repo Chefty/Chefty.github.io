@@ -1,280 +1,201 @@
-// @codekit-prepend "/vendor/hammer-2.0.8.js";
+// @codekit-prepend "/vendor/TweenLite.min.js";
+// @codekit-prepend "/vendor/TimelineLite.min.js";
+// @codekit-prepend "/vendor/CSSPlugin.min.js";
+// @codekit-prepend "/vendor/CSSRulePlugin.min.js";
+// @codekit-prepend "/vendor/ScrollToPlugin.min.js";
+// @codekit-prepend "/vendor/jquery.gsap.min.js";
+// @codekit-prepend "/vendor/ScrollMagic.min.js";
+// @codekit-prepend "/vendor/animation.gsap.min.js";
+// @codekit-prepend "/vendor/jquery.ScrollMagic.min.js";
 
-$( document ).ready(function() {
+$(document).ready(function() {
+	
+	/***************** Splashscreen ******************/
+	
+	$(window).load(function() {
+		
+		$('.splashscreen').addClass('splashscreen--is-hidden');
+		
+		setTimeout(function() {
+			$('.splashscreen').css( {'display': 'none'} );
+			
+			/* Introduction Animation */
+			var $name = $('.introduction__content-el--name'),
+	  			$job = $('.introduction__content-el--job');
+			TweenLite.to([$name, $job], 0.8, {x: 0, opacity: 1, ease: Power1.easeOut});
+		}, 800);
+		
+	});
+	
+	/***************** Responsive Nav ******************/
 
-  // DOMMouseScroll included for firefox support
-  var canScroll = true,
-      scrollController = null;
-  $(this).on('mousewheel DOMMouseScroll', function(e){
-
-    if (!($('.outer-nav').hasClass('is-vis'))) {
-
-      e.preventDefault();
-
-      var delta = (e.originalEvent.wheelDelta) ? -e.originalEvent.wheelDelta : e.originalEvent.detail * 20;
-
-      if (delta > 50 && canScroll) {
-        canScroll = false;
-        clearTimeout(scrollController);
-        scrollController = setTimeout(function(){
-          canScroll = true;
-        }, 800);
-        updateHelper(1);
-      }
-      else if (delta < -50 && canScroll) {
-        canScroll = false;
-        clearTimeout(scrollController);
-        scrollController = setTimeout(function(){
-          canScroll = true;
-        }, 800);
-        updateHelper(-1);
-      }
-
-    }
-
+  $('.navigation__burger').click(function() {
+	  
+	  navigationToggle();
+	  
   });
-
-  $('.side-nav li, .outer-nav li').click(function(){
-
-    if (!($(this).hasClass('is-active'))) {
-
-      var $this = $(this),
-          curActive = $this.parent().find('.is-active'),
-          curPos = $this.parent().children().index(curActive),
-          nextPos = $this.parent().children().index($this),
-          lastItem = $(this).parent().children().length - 1;
-
-      updateNavs(nextPos);
-      updateContent(curPos, nextPos, lastItem);
-
-    }
-
+  
+  function navigationToggle() {
+	  
+	  $('.navigation__burger').toggleClass('navigation__burger--is-open');
+	  $('.navigation__container').toggleClass('navigation__container--is-open');
+	  $('html, body').toggleClass('scroll-lock');
+	  
+  }
+  
+  /***************** Smooth Scroll ******************/
+  
+  $('a[href*="#"]:not([href="#0"])').click(function(ev) {
+	  
+	  ev.preventDefault();
+		
+		if ($('.navigation__container').hasClass('navigation__container--is-open')) {
+			navigationToggle();
+		}
+			
+		var target = $(this).attr('href');
+		
+		TweenLite.to(window, 1, {scrollTo: target});
+		
+	});
+	
+	/***************** Animations ******************/
+	
+	/* Restrict to large devices */
+	if ($(window).width() > 991) {  
+	
+	  var controller = new ScrollMagic.Controller();
+	
+	  /* About */
+	  var $aboutTrigger = $('.about'),
+	  		$aboutBlurb = $('.about__content-blurb'),
+	  		$aboutVisual = $('.about__visual'),
+	  		$aboutSignature = $('.about__content-signature'),
+	  		$aboutFrame = CSSRulePlugin.getRule('.about__wrapper:before'),
+	  		aboutTl = new TimelineLite();
+	  		
+	  aboutTl
+	  	.from($aboutBlurb, 0.8, {x: 50, opacity: 0, ease: Power1.easeOut})
+	  	.from($aboutVisual, 0.8, {x: -50, opacity: 0, ease: Power1.easeOut}, 0)
+	  	.from($aboutFrame, 0.8, {cssRule:{opacity: 0}, ease: Power1.easeOut})
+	  	.from($aboutSignature, 0.8, {opacity: 0}, '-=0.4');
+	  	
+	  var aboutScene = new ScrollMagic.Scene({
+		  triggerElement: $aboutTrigger,
+		  reverse: false
+	  })
+	  	.setTween(aboutTl)
+	  	.addTo(controller);
+	  
+	  /* Fix for about__visual positioning due to
+		 * JS tweening overwriting CSS translateX
+		 * value when loaded on a larger display
+		 * that is then resized below 991
+		 * (e.g. landscape => portrait) */
+	  $(window).resize(function() {
+		  
+		  if ($(window).width() <= 991) {
+			  $('.about__visual').css({ 'transform': 'translateX(-50%)' });
+		  }
+		  else {
+			  $('.about__visual').css({ 'transform': 'translateX(0)' });
+		  }
+		  
+	  });
+	  	
+	  /* App Design */
+	  var $appDesignTrigger = $('.app-design'),
+	  		$appDesignVisual = $('.app-design__visual');
+	  	
+	  var appDesignScene = new ScrollMagic.Scene({
+		  triggerElement: $appDesignTrigger,
+		  reverse: false
+	  })
+	  	.setTween(TweenLite.from($appDesignVisual, 0.8, {x: 100, opacity: 0, ease: Power1.easeOut}))
+	  	.addTo(controller);
+	  	
+	  /* Web Design */
+	  var $webDesignTrigger = $('.web-design'),
+	  		$webDesignVisual = $('.web-design__visual');
+	  	
+	  var webDesignScene = new ScrollMagic.Scene({
+		  triggerElement: $webDesignTrigger,
+		  reverse: false
+	  })
+	  	.setTween(TweenLite.from($webDesignVisual, 0.8, {x: -100, opacity: 0, ease: Power1.easeOut}))
+	  	.addTo(controller);
+	  	
+	  /* Work */
+	  var $workTrigger = $('.work'),
+	  		$workContent = $('.work__content'),
+	  		$workVisual = $('.work__visual'),
+	  		$workFrame = CSSRulePlugin.getRule('.work__list:before'),
+	  		workTl = new TimelineLite();
+	  		
+	  workTl
+	  	.set($workVisual, {scale: 1})
+	  	.from($workContent, 0.8, {x: -50, opacity: 0, ease: Power1.easeOut})
+	  	.from($workVisual, 0.8, {x: 50, opacity: 0, ease: Power1.easeOut}, 0)
+	  	.from($workFrame, 0.8, {cssRule:{opacity: 0}, ease: Power1.easeOut});
+	  	
+	  var workScene = new ScrollMagic.Scene({
+		  triggerElement: $workTrigger,
+		  offset: 60,
+		  reverse: false
+	  })
+	  	.setTween(workTl)
+	  	.addTo(controller);
+	  	
+	  /* Blog */
+	  var $blogTrigger = $('.blog'),
+	  		$blogPost = $('.blog__post'),
+	  		$blogButton = $('.blog__view-more--el'),
+	  		blogTl = new TimelineLite();
+	  		
+	  blogTl
+	  	.staggerFrom($blogPost, 0.8, {opacity: 0, ease: Power1.easeOut}, 0.4)
+	  	.from($blogButton, 0.8, {opacity: 0, ease: Power1.easeOut}, '-=0.2');
+	  	
+	  var blogScene = new ScrollMagic.Scene({
+		  triggerElement: $blogTrigger,
+		  reverse: false
+	  })
+	  	.setTween(blogTl)
+	  	.addTo(controller);
+	  	
+	  /* Contact */
+	  var $contactTrigger = $('.contact'),
+	  		$contactForm = $('.contact__form'),
+	  		$contactVisual = $('.contact__visual'),
+	  		$contactFrame = CSSRulePlugin.getRule('.contact__wrapper:before'),
+	  		contactTl = new TimelineLite();
+	  		
+	  contactTl
+	  	.from($contactForm, 0.8, {x: 50, opacity: 0, ease: Power1.easeOut})
+	  	.from($contactVisual, 0.8, {x: -50, opacity: 0, ease: Power1.easeOut}, 0)
+	  	.from($contactFrame, 0.8, {cssRule:{opacity: 0}, ease: Power1.easeOut});
+	  	
+	  var contactScene = new ScrollMagic.Scene({
+		  triggerElement: $contactTrigger,
+		  reverse: false
+	  })
+	  	.setTween(contactTl)
+	  	.addTo(controller);
+	  	
+	}
+  
+  /***************** Work Carousel ******************/
+  
+  $('.work__navigation-el').click(function() {
+	  
+	  var $this = $(this),
+	  		position = $this.parent().children().index($this);
+	  		
+	  $this.parent().children().removeClass('work__navigation-el--is-active');
+	  $this.addClass('work__navigation-el--is-active');
+	  $('.work__list').children().removeClass('work__list-el--is-active');
+	  $('.work__list').children().eq(position).addClass('work__list-el--is-active');
+	  
   });
-
-  $('.cta').click(function(){
-
-    var curActive = $('.side-nav').find('.is-active'),
-        curPos = $('.side-nav').children().index(curActive),
-        lastItem = $('.side-nav').children().length - 1,
-        nextPos = lastItem;
-
-    updateNavs(lastItem);
-    updateContent(curPos, nextPos, lastItem);
-
-  });
-
-  // swipe support for touch devices
-  var targetElement = document.getElementById('viewport'),
-      mc = new Hammer(targetElement);
-  mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
-  mc.on('swipeup swipedown', function(e) {
-
-    updateHelper(e);
-
-  });
-
-  $(document).keyup(function(e){
-
-    if (!($('.outer-nav').hasClass('is-vis'))) {
-      e.preventDefault();
-      updateHelper(e);
-    }
-
-  });
-
-  // determine scroll, swipe, and arrow key direction
-  function updateHelper(param) {
-
-    var curActive = $('.side-nav').find('.is-active'),
-        curPos = $('.side-nav').children().index(curActive),
-        lastItem = $('.side-nav').children().length - 1,
-        nextPos = 0;
-
-    if (param.type === "swipeup" || param.keyCode === 40 || param > 0) {
-      if (curPos !== lastItem) {
-        nextPos = curPos + 1;
-        updateNavs(nextPos);
-        updateContent(curPos, nextPos, lastItem);
-      }
-      else {
-        updateNavs(nextPos);
-        updateContent(curPos, nextPos, lastItem);
-      }
-    }
-    else if (param.type === "swipedown" || param.keyCode === 38 || param < 0){
-      if (curPos !== 0){
-        nextPos = curPos - 1;
-        updateNavs(nextPos);
-        updateContent(curPos, nextPos, lastItem);
-      }
-      else {
-        nextPos = lastItem;
-        updateNavs(nextPos);
-        updateContent(curPos, nextPos, lastItem);
-      }
-    }
-
-  }
-
-  // sync side and outer navigations
-  function updateNavs(nextPos) {
-
-    $('.side-nav, .outer-nav').children().removeClass('is-active');
-    $('.side-nav').children().eq(nextPos).addClass('is-active');
-    $('.outer-nav').children().eq(nextPos).addClass('is-active');
-
-  }
-
-  // update main content area
-  function updateContent(curPos, nextPos, lastItem) {
-
-    $('.main-content').children().removeClass('section--is-active');
-    $('.main-content').children().eq(nextPos).addClass('section--is-active');
-    $('.main-content .section').children().removeClass('section--next section--prev');
-
-    if (curPos === lastItem && nextPos === 0 || curPos === 0 && nextPos === lastItem) {
-      $('.main-content .section').children().removeClass('section--next section--prev');
-    }
-    else if (curPos < nextPos) {
-      $('.main-content').children().eq(curPos).children().addClass('section--next');
-    }
-    else {
-      $('.main-content').children().eq(curPos).children().addClass('section--prev');
-    }
-
-    if (nextPos !== 0 && nextPos !== lastItem) {
-      $('.header--cta').addClass('is-active');
-    }
-    else {
-      $('.header--cta').removeClass('is-active');
-    }
-
-  }
-
-  function outerNav() {
-
-    $('.header--nav-toggle').click(function(){
-
-      $('.perspective').addClass('perspective--modalview');
-      setTimeout(function(){
-        $('.perspective').addClass('effect-rotate-left--animate');
-      }, 25);
-      $('.outer-nav, .outer-nav li, .outer-nav--return').addClass('is-vis');
-
-    });
-
-    $('.outer-nav--return, .outer-nav li').click(function(){
-
-      $('.perspective').removeClass('effect-rotate-left--animate');
-      setTimeout(function(){
-        $('.perspective').removeClass('perspective--modalview');
-      }, 400);
-      $('.outer-nav, .outer-nav li, .outer-nav--return').removeClass('is-vis');
-
-    });
-
-  }
-
-  function workSlider() {
-
-    $('.slider--prev, .slider--next').click(function() {
-
-      var $this = $(this),
-          curLeft = $('.slider').find('.slider--item-left'),
-          curLeftPos = $('.slider').children().index(curLeft),
-          curCenter = $('.slider').find('.slider--item-center'),
-          curCenterPos = $('.slider').children().index(curCenter),
-          curRight = $('.slider').find('.slider--item-right'),
-          curRightPos = $('.slider').children().index(curRight),
-          totalWorks = $('.slider').children().length,
-          $left = $('.slider--item-left'),
-          $center = $('.slider--item-center'),
-          $right = $('.slider--item-right'),
-          $item = $('.slider--item');
-
-      $('.slider').animate({ opacity : 0 }, 400);
-
-      setTimeout(function(){
-
-      if ($this.hasClass('slider--next')) {
-        if (curLeftPos < totalWorks - 1 && curCenterPos < totalWorks - 1 && curRightPos < totalWorks - 1) {
-          $left.removeClass('slider--item-left').next().addClass('slider--item-left');
-          $center.removeClass('slider--item-center').next().addClass('slider--item-center');
-          $right.removeClass('slider--item-right').next().addClass('slider--item-right');
-        }
-        else {
-          if (curLeftPos === totalWorks - 1) {
-            $item.removeClass('slider--item-left').first().addClass('slider--item-left');
-            $center.removeClass('slider--item-center').next().addClass('slider--item-center');
-            $right.removeClass('slider--item-right').next().addClass('slider--item-right');
-          }
-          else if (curCenterPos === totalWorks - 1) {
-            $left.removeClass('slider--item-left').next().addClass('slider--item-left');
-            $item.removeClass('slider--item-center').first().addClass('slider--item-center');
-            $right.removeClass('slider--item-right').next().addClass('slider--item-right');
-          }
-          else {
-            $left.removeClass('slider--item-left').next().addClass('slider--item-left');
-            $center.removeClass('slider--item-center').next().addClass('slider--item-center');
-            $item.removeClass('slider--item-right').first().addClass('slider--item-right');
-          }
-        }
-      }
-      else {
-        if (curLeftPos !== 0 && curCenterPos !== 0 && curRightPos !== 0) {
-          $left.removeClass('slider--item-left').prev().addClass('slider--item-left');
-          $center.removeClass('slider--item-center').prev().addClass('slider--item-center');
-          $right.removeClass('slider--item-right').prev().addClass('slider--item-right');
-        }
-        else {
-          if (curLeftPos === 0) {
-            $item.removeClass('slider--item-left').last().addClass('slider--item-left');
-            $center.removeClass('slider--item-center').prev().addClass('slider--item-center');
-            $right.removeClass('slider--item-right').prev().addClass('slider--item-right');
-          }
-          else if (curCenterPos === 0) {
-            $left.removeClass('slider--item-left').prev().addClass('slider--item-left');
-            $item.removeClass('slider--item-center').last().addClass('slider--item-center');
-            $right.removeClass('slider--item-right').prev().addClass('slider--item-right');
-          }
-          else {
-            $left.removeClass('slider--item-left').prev().addClass('slider--item-left');
-            $center.removeClass('slider--item-center').prev().addClass('slider--item-center');
-            $item.removeClass('slider--item-right').last().addClass('slider--item-right');
-          }
-        }
-      }
-
-    }, 400);
-
-    $('.slider').animate({ opacity : 1 }, 400);
-
-    });
-
-  }
-
-  function transitionLabels() {
-
-    $('.work-request--information input').focusout(function(){
-
-      var textVal = $(this).val();
-
-      if (textVal === "") {
-        $(this).removeClass('has-value');
-      }
-      else {
-        $(this).addClass('has-value');
-      }
-
-      // correct mobile device window position
-      window.scrollTo(0, 0);
-
-    });
-
-  }
-
-  outerNav();
-  workSlider();
-  transitionLabels();
 
 });
