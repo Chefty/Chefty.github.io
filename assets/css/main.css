@@ -335,7 +335,7 @@ input, textarea {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    background-color: #fff;
+    background-color: #212121;
     z-index: 100;
     -webkit-transition: opacity .4s .4s;
     transition: opacity .4s .4s
@@ -376,10 +376,10 @@ input, textarea {
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     padding: 10px 0;
-    color: #585858;
+    color: #FAFAFA;
     font-size: 32px;
     font-weight: 800;
-    background-color: #fff
+    background-color: #212121
 }
 
 .logo {
@@ -439,6 +439,7 @@ input, textarea {
     color: #FAFAFA;
     font-size: 58px;
     font-weight: 800
+    
 }
 
 .blurb__copy {
@@ -878,8 +879,8 @@ input, textarea {
 
 .about__visual {
     position: absolute;
-    left: 129px;
-    bottom: 52.5px;
+    left: 129.5px;
+    bottom: 53.1px;
     z-index: 1
 }
 
@@ -967,11 +968,11 @@ input, textarea {
 .app-design {
     position: relative;
     width: 100%;
+    height: fit-content;
     padding: 180px 0;
-    overflow: hidden
 }
 
-.app-design__visual {
+/* .app-design__visual {
     position: absolute;
     top: 35px;
     left: 45%;
@@ -982,21 +983,21 @@ input, textarea {
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat
-}
+} */
 
 @media (max-width: 991px) {
     .app-design__content h2 {
         font-size: 48px
     }
-    .app-design__visual {
+    /* .app-design__visual {
         width: 922px;
         height: 586px
-    }
+    } */
 }
 
 @media (max-width: 767px) {
     .app-design {
-        height: 400px;
+        height: fit-content;
         padding: 60px 0
     }
     .app-design__content {
@@ -1011,7 +1012,7 @@ input, textarea {
     .app-design__content p {
         margin: 0 auto 20px auto
     }
-    .app-design__visual {
+    /* .app-design__visual {
         top: auto;
         left: 50%;
         bottom: -175px;
@@ -1019,16 +1020,16 @@ input, textarea {
         transform: translateX(-50%);
         width: 679px;
         height: 439px
-    }
+    } */
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
     .app-design__visual {
         bottom: -100px;
         width: 576px;
         height: 366px
     }
-}
+} */
 
 .web-design {
     position: relative;
@@ -1203,6 +1204,7 @@ input, textarea {
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
+    -webkit-overflow-scrolling: touch;
     justify-content: space-between;
     margin: 45px auto 0 auto
 }
@@ -1605,5 +1607,52 @@ input, textarea {
         -webkit-order: 2;
         -ms-flex-order: 2;
         order: 2
+    }
+}
+
+.grid {
+    display: grid;
+    padding-left: 5%;
+    padding-right: 5%;
+    justify-self: end;
+}
+  
+.grid::before {
+    content: '';
+    width: 0;
+    padding-bottom: 100%;
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+}
+  
+.grid > *:first-child {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+}
+  
+.grid > * {
+    margin: 5px;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.external_link {
+    display: flex;
+    column-gap: 20px;
+    justify-content: space-between;
+}
+
+
+@media (min-width: 100px) {
+    .grid { 
+        grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+        grid-auto-rows: 1fr;
+    }
+}
+
+@media (min-width: 600px) {
+    .grid { 
+        grid-template-columns: repeat(6, auto [col-start]);
     }
 }
