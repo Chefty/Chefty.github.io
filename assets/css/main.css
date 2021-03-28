@@ -969,7 +969,7 @@ input, textarea {
     position: relative;
     width: 100%;
     height: fit-content;
-    padding: 180px 0;
+    padding: 60px 0;
 }
 
 /* .app-design__visual {
@@ -1190,7 +1190,7 @@ input, textarea {
     z-index: 2
 }
 
-.work__visual img {
+.work__visual video {
     display: block;
     width: 100%
 }
@@ -1631,7 +1631,7 @@ input, textarea {
 }
   
 .grid > * {
-    margin: 5px;
+    margin: 20%;
     background-position:center center;
     background-repeat:no-repeat;
     background-size:cover;
@@ -1653,6 +1653,6 @@ input, textarea {
 
 @media (min-width: 600px) {
     .grid { 
-        grid-template-columns: repeat(6, auto [col-start]);
+        grid-template-columns: repeat(4, auto [col-start]);
     }
 }

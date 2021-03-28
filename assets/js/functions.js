@@ -105,7 +105,7 @@ $(document).ready(function() {
 	  	
 	  /* App Design */
 	  var $appDesignTrigger = $('.app-design'),
-	  		$appDesignVisual = $('.app-design__visual');
+	  		$appDesignVisual = $('.grid');
 	  	
 	  var appDesignScene = new ScrollMagic.Scene({
 		  triggerElement: $appDesignTrigger,
@@ -197,5 +197,19 @@ $(document).ready(function() {
 	  $('.work__list').children().eq(position).addClass('work__list-el--is-active');
 	  
   });
+
+  $('.work__navigation-el').swipe( {
+
+    click:function(event,target){
+        myFunction();
+    },                                          
+    swipeLeft: function() {
+        myFunction();
+    },
+    swipeRight: function() {
+        // do something on right swipe
+    },
+    allowPageScroll: 'vertical'
+});
 
 });
