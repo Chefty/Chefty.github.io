@@ -597,6 +597,12 @@ input, textarea {
     display: none
 }
 
+@media (min-width: 600px) { 
+    .txt-menu {
+       display:none
+    } 
+}
+
 @media (max-width: 991px) {
     .navigation__cta {
         display: none
